@@ -128,7 +128,7 @@ runs:
           sudo apt-get -yq install libgtk-3-0 libwebkit2gtk-4.1-dev gcc-aarch64-linux-gnu
         else
           echo "Unsupported Linux distribution: $DISTRO"
-          exit 1 # Fail the workflow if the distribution is not supported
+          exit 1 # Fa the workflow if the distribution is not supported
         fi
         echo "DISTRO=$DISTRO" >> "$GITHUB_OUTPUT"
       shell: bash
@@ -196,7 +196,7 @@ runs:
       env:
         BUILD_OPTIONS: ${{ steps.build_options.outputs.BUILD_OPTIONS }}
       working-directory: ${{ inputs.app-working-directory }}
-      run: wails build --platform ${{inputs.build-platform}} -webview2 ${{inputs.wails-build-webview2}} -o ${{inputs.build-name}} $BUILD_OPTIONS
+      run: wails build --platform ${{inputs.build-platform}} -webview2 ${{inputs.wails-build-webview2}} -nsis -o ${{inputs.build-name}} $BUILD_OPTIONS
       shell: bash
     - name: Add macOS perms
       if: inputs.build == 'true' && runner.os == 'macOS'
